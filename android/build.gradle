@@ -24,6 +24,13 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 29
 
+    externalNativeBuild {
+        // Argon2 Library build Configuration
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
     defaultConfig {
         minSdkVersion 16
     }

@@ -3,5 +3,6 @@
 
 .packages
 .pub/
-
+doc/
+android/.cxx/
 build/
