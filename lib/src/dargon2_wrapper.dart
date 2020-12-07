@@ -3,25 +3,10 @@
 // The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "Dargon2FlutterPlugin.h"
-#import "argon2.h"
+/// Import the class as dargon2 in order to get the cannonical instance as a wrapper class, which may make
+/// general use easier in the future when platform specific things may be needed
+import 'package:dargon2/dargon2.dart' as dargon2;
 
-@implementation Dargon2FlutterPlugin
-+ (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"dargon2_flutter"
-            binaryMessenger:[registrar messenger]];
-  Dargon2FlutterPlugin* instance = [[Dargon2FlutterPlugin alloc] init];
-  [registrar addMethodCallDelegate:instance channel:channel];
-  //Call these all once in order to pass them through to flutter because it doesn't work otherwise
-  argon2_hash(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x13);
-  argon2_encodedlen(0, 0, 0, 0, 0, 0);
-  argon2_verify(0, 0, 0, 0);
-  argon2_error_message(0);
-}
-
-- (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  result(FlutterMethodNotImplemented);
-}
-
-@end
+/// The Canonical instance of [dargon2.DArgon2] in a wrapper class for ease.
+/// The real code for native binding and hashing is located in the dargon2 library
+const argon2 = dargon2.argon2;

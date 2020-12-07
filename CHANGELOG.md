@@ -1,6 +1,10 @@
+## 1.0.3
+
+- Changed some documentation and added a wrapper class
+
 ## 1.0.2
 
-- Added extra doocumentation
+- Added extra documentation
 
 ## 1.0.1
 
