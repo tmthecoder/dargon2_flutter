@@ -17,28 +17,28 @@ Pod::Spec.new do |s|
   s.source_files =
     'Classes/Dargon2FlutterPlugin.h',
     'Classes/Dargon2FlutterPlugin.m',
-    'Classes/Argon2/*.{c,h}',
+    'Classes/Argon2/src/argon2.c',
     'Classes/Argon2/src/core.{c,h}',
     'Classes/Argon2/src/thread.{c,h}',
     'Classes/Argon2/src/encoding.{c,h}',
     'Classes/Argon2/src/blake2/blake2.h',
     'Classes/Argon2/src/blake2/blake2b.c',
     'Classes/Argon2/src/blake2/blake2-impl.h',
-#     'Classes/Argon2/argon2.h'
+    'Classes/Argon2/include/**/*.h'
   s.ios.source_files =
     'Classes/Argon2/src/ref.c',
     'Classes/Argon2/src/blake2/blamka-round-ref.h'
   s.dependency 'Flutter'
   s.platform = :ios, '9.0'
-  s.public_header_files = 'Classes/Argon2/*.h', 'Classes/*.h'
-  s.preserve_paths = 'Classes/Argon2'
+  s.public_header_files = 'Classes/Argon2/include/**/*.h', 'Classes/Dargon2FlutterPlugin.h'
+  s.preserve_paths = 'Classes/Argon2', 'Classes/Argon2/include/**/*.h'
   s.requires_arc = true
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = {
     'DEFINES_MODULE' => 'YES',
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
-    'SWIFT_INCLUDE_PATHS[sdk=iphoneos*]'          => '$(PODS_TARGET_SRCROOT)/Classes/Argon2',
-    'SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]'   => '$(PODS_TARGET_SRCROOT)/Classes/Argon2',
+    'SWIFT_INCLUDE_PATHS[sdk=iphoneos*]'          => '$(PODS_TARGET_SRCROOT)/Classes/Argon2 $(PODS_TARGET_SRCROOT)/Classes/Argon2/include',
+    'SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]'   => '$(PODS_TARGET_SRCROOT)/Classes/Argon2 $(PODS_TARGET_SRCROOT)/Classes/Argon2/include',
   }
   s.swift_version = '5.0'
 end

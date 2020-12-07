@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  dargon2_flutter: 7f3b7b639b67a53d1837d3ff4f3def5c1f5fc22b
+  dargon2_flutter: 6bb53253a9bcdd9977465b06c98137b503d9fd82
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
 
 PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
