@@ -17,6 +17,7 @@
 ///
 /// For detailed usage please look at the example
 export 'src/dargon2_wrapper.dart';
+
 /// Export the package's methods as well in order to conveniently access result classes
 /// and other such items, like error codes
 export 'package:dargon2/dargon2.dart' hide argon2;

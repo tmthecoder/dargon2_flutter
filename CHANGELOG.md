@@ -1,3 +1,7 @@
+## 1.0.4
+
+- Fixed formatting with dartfmt
+
 ## 1.0.3
 
 - Changed some documentation and added a wrapper class
