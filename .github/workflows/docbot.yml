@@ -24,6 +24,8 @@ jobs:
       run: flutter upgrade
     - name: Install dependencies
       run: flutter packages get
+    - name: Activare dartdoc
+      run: pub global activate dartdoc
     - name: Generate Documentation
       run: dartdoc
     - name: Push Documentation
