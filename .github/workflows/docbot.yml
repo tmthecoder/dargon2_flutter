@@ -24,10 +24,12 @@ jobs:
       run: flutter upgrade
     - name: Install dependencies
       run: flutter packages get
-    - name: Activare dartdoc
+    - name: Activate dartdoc
       run: pub global activate dartdoc
     - name: Generate Documentation
-      run: dartdoc
+      run: |
+        export FLUTTER_ROOT=/opt/hostedtoolcache/flutter
+        dartdoc
     - name: Push Documentation
       run: |
         cd doc/api
