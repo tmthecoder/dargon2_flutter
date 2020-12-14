@@ -41,5 +41,5 @@ jobs:
         cp -R ../doc/api dargon2_flutter/
         git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/tmthecoder/docs
         git add .
-        git commit -m "Updated documentation for dargon2_flutter"
+        git commit -m "Updated documentation for dargon2_flutter" --allow-empty
         git push secure-origin main
