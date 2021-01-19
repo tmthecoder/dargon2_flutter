@@ -1,0 +1,45 @@
+name: docbot
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  update-docs:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    - uses: subosito/flutter-action@v1
+      with:
+        flutter-version: '1.20.x' # you can use 1.12
+        channel: 'beta' # Currently you have to use beta channel for Flutter web.
+    - name: Upgrade flutter
+      run: flutter upgrade
+    - name: Install dependencies
+      run: flutter packages get
+    - name: Activate dartdoc
+      run: pub global activate dartdoc
+    - name: Generate Documentation
+      run: |
+        export FLUTTER_ROOT=$FLUTTER_HOME
+        dartdoc
+    - name: Push Documentation
+      run: |
+        mkdir doc-src && git clone https://github.com/tmthecoder/docs doc-src
+        cd doc-src
+        echo "docs.tmthecoder.dev" > CNAME
+        git config user.name  "Docbot"
+        git config user.email "docbot@github.com"
+        if [ -d dargon2_flutter/ ]; then rm -Rf dargon2_flutter/; fi
+        cp -R ../doc/api dargon2_flutter/
+        git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/tmthecoder/docs
+        git add .
+        git commit -m "Updated documentation for dargon2_flutter" --allow-empty
+        git push secure-origin main
