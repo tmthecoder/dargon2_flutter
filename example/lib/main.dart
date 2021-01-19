@@ -87,10 +87,10 @@ class _MyAppState extends State<MyApp> {
   /// A simple hashing test method for argon2.
   /// It takes the text from the controller and passes it through to the dargon2 plugin,
   /// returning the hashed result.
-  void _hash() {
+  void _hash() async {
     //Hash the given text and show the results
     DArgon2Result result =
-        argon2.hashPasswordString(_passController.text, salt: Salt.newSalt());
+        await argon2.hashPasswordString(_passController.text, salt: Salt.newSalt());
     _base64Hash = result.base64String;
     _hexHash = result.hexString;
     _encodedString = result.encodedString;

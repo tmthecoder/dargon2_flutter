@@ -12,13 +12,13 @@ Uses the reference C implementation of [Argon2], winner of the [Password Hash Co
 High-level hashing and verification (for direct hashing & verification of byte arrays, check the example on [dargon2])
 
 ```dart
-void _hash() {
+void _hash() async {
    var password = 'password';
    //use Salt(List<int> bytes) for a salt from an Integer list
    var s = Salt.newSalt();
    //Hash with pre-set params (iterations: 32, memory: 256, parallelism: 2, 
    //length: 32, type: Argon2Type.i, version: Argon2Version.V13)
-   var result = argon2.hashPasswordString(password, salt: s);
+   var result = await argon2.hashPasswordString(password, salt: s);
    
    //Raw hash values available as int list, base 64 string, and hex string
    var bytesRaw = result.rawBytes;
@@ -30,7 +30,7 @@ void _hash() {
    var stringEncoded = result.encodedString;
    
    //Verify password (returns true/false), uses default type (Argon2Type.i)
-   var verified = argon2.verifyHashString(password, stringEncoded);
+   var verified = await argon2.verifyHashString(password, stringEncoded);
 }
 ```
 

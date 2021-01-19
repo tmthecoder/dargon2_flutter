@@ -1,3 +1,7 @@
+## 1.1.0
+- Updated for concurrency with dargon2
+- Changelog contains the same underlying changes as [dargon2's Changelog](https://github.com/tmthecoder/dargon2/blob/1.1.0/CHANGELOG.md)
+
 ## 1.0.4
 
 - Fixed formatting with dartfmt
