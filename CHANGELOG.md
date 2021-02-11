@@ -1,3 +1,7 @@
+## 1.1.2
+- Updated for concurrency with dargon2
+- Contains a version bump for dargon2
+
 ## 1.1.0
 - Updated for concurrency with dargon2
 - Changelog contains the same underlying changes as [dargon2's Changelog](https://github.com/tmthecoder/dargon2/blob/1.1.0/CHANGELOG.md)
