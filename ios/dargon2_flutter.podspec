@@ -16,38 +16,19 @@ Pod::Spec.new do |s|
   s.author           = { 'Tejas Mehta' => 'tmthecoder@gmail.com' }
   s.source           = { :path => '.' }
 
-  s.private_header_files =
-    'Classes/Argon2/src/core.h',
-    'Classes/Argon2/src/thread.h',
-    'Classes/Argon2/src/encoding.h',
-    'Classes/Argon2/src/blamka-round-ref.h',
-    'Classes/Argon2/src/blake2.h',
-    'Classes/Argon2/src/blake2-impl.h'
-
   s.source_files =
     'Classes/Dargon2FlutterPlugin.h',
-    'Classes/Dargon2FlutterPlugin.m',
-    'Classes/Argon2/src/argon2.c',
-    'Classes/Argon2/src/core.{c,h}',
-    'Classes/Argon2/src/thread.{c,h}',
-    'Classes/Argon2/src/encoding.{c,h}',
-    'Classes/Argon2/src/blake2/blake2.h',
-    'Classes/Argon2/src/blake2/blake2b.c',
-    'Classes/Argon2/src/blake2/blake2-impl.h',
-    'Classes/Argon2/include/argon2.h',
-    'Classes/Argon2/src/ref.c',
-    'Classes/Argon2/src/blake2/blamka-round-ref.h'
+    'Classes/Dargon2FlutterPlugin.m'
 
   s.dependency 'Flutter'
+  s.dependency 'Argon2Swift'
   s.platform = :ios, '9.0'
-  s.public_header_files = 'Classes/Argon2/include/argon2.h', 'Classes/Dargon2FlutterPlugin.h'
+  s.public_header_files = 'Classes/Dargon2FlutterPlugin.h'
   s.preserve_paths = 'Classes/Argon2/include/'
   s.requires_arc = true
   s.pod_target_xcconfig = {
     'DEFINES_MODULE' => 'YES',
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
-    'SWIFT_INCLUDE_PATHS[sdk=iphoneos*]'          => '$(PODS_TARGET_SRCROOT)/Classes/Argon2 $(PODS_TARGET_SRCROOT)/Classes/Argon2/include',
-    'SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]'   => '$(PODS_TARGET_SRCROOT)/Classes/Argon2 $(PODS_TARGET_SRCROOT)/Classes/Argon2/include',
   }
   s.swift_version = '5.0'
 end
