@@ -1,6 +1,3 @@
-## 1.1.4
-- Updated the swift package structure to a modulemap based one over a header import to avoid any conflicts in same header use
-
 ## 1.1.3
 - Updated to fix the bug that disallowed release-time archiving on iOS
 
