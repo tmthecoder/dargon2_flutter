@@ -1,3 +1,6 @@
+## 1.1.3
+- Updated to fix the bug that disallowed release-time archiving on iOS
+
 ## 1.1.2
 - Updated for concurrency with dargon2
 - Contains a version bump for dargon2

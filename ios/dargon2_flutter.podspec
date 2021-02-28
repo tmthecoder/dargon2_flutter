@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'dargon2_flutter'
-  s.version          = '1.0.3'
+  s.version          = '1.1.3'
   s.summary          = 'The Flutter Implementation of dargon2'
   s.description      = <<-DESC
   Dargon2_flutter is the Flutter implementation of dargon2, which is a plugin built
