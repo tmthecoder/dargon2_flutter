@@ -1,3 +1,7 @@
+## 1.2.0
+- **Potentially Breaking** The library now needs swift libs to run, so if you are making a pure Objective-C app, you'll have to create a dummy swift file and click yes when it asks to create bridging header
+- Changed the underlying C library to go off the code in `Argon2Swift` so both the plugins can be used in the same application if need be
+
 ## 1.1.3
 - Updated to fix the bug that disallowed release-time archiving on iOS
 

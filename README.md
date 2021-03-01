@@ -7,6 +7,15 @@ Uses the reference C implementation of [Argon2], winner of the [Password Hash Co
 [Password Hash Competition]: https://password-hashing.net
 [dargon2]: https://github.com/tmthecoder/dargon2
 
+## Pure Objective-C iOS
+If you're using Objective-C for the iOS portion of your application (created with Objective-C and no Swift code), there's a few extra steps:
+- Open the Xcode workspace (type in `open iOS/Runner.xcworkspace` in the terminal in the project's root directory)
+- Right click the `Runner` directory (Folder, not project/workspace) 
+- Click `New File`
+- Select `Swift File` in the prompt 
+- (**This is the Important Step**) Select `Create Bridging Header` when the prompt comes up
+- You don't have to add anything to that swift file or the bridging header, but it needs to be there along with the bridging header in order for the plugin to compile correctly for iOS
+
 ## Usage
 
 High-level hashing and verification (for direct hashing & verification of byte arrays, check the example on [dargon2])

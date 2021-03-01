@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'dargon2_flutter'
-  s.version          = '1.1.3'
+  s.version          = '1.2.0'
   s.summary          = 'The Flutter Implementation of dargon2'
   s.description      = <<-DESC
   Dargon2_flutter is the Flutter implementation of dargon2, which is a plugin built
@@ -24,11 +24,15 @@ Pod::Spec.new do |s|
   s.dependency 'Argon2Swift'
   s.platform = :ios, '9.0'
   s.public_header_files = 'Classes/Dargon2FlutterPlugin.h'
-  s.preserve_paths = 'Classes/Argon2/include/'
+  s.source_files =
+    "Classes/Dargon2FlutterPlugin.h",
+    "Classes/Dargon2FlutterPlugin.m"
+#   s.preserve_paths = 'Classes/Argon2/include/'
   s.requires_arc = true
   s.pod_target_xcconfig = {
     'DEFINES_MODULE' => 'YES',
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
+    'LIBRARY_SEARCH_PATHS[sdk=*]' => '$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)',
   }
   s.swift_version = '5.0'
 end
