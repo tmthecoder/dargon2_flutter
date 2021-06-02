@@ -6,4 +6,5 @@
 import 'package:dargon2_core/dargon2_core.dart';
 import 'package:dargon2_flutter/src/native/flutter_lib_loader.dart';
 
+/// The globally accessible instance of [DArgon2] with Flutter library loading
 final argon2 = DArgon2(FlutterLibLoader());
