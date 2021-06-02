@@ -52,7 +52,7 @@ Please file feature requests and bugs at the [issue tracker].
 ## Licensing
 
 - dargon2_flutter is Licensed under the [MIT License]
-- dargon2 is Licensed under the [MIT License]
+- dargon2_core is Licensed under the [MIT License](https://github.com/tmthecoder/dargon2_core/blob/main/LICENSE)
 - The C implementation of [Argon2] is licensed under a dual [Apache and CC0 License]
 
 [MIT License]: https://github.com/tmthecoder/dargon2_flutter/blob/main/LICENSE
