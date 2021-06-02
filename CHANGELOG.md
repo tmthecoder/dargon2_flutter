@@ -1,3 +1,8 @@
+## 2.1.0
+- Migrated to use a shared dargon2_core plugin
+- More modular and allows for custom Library Loader definitions
+- No user-facing changes, all changes should be strictly internal
+
 ## 2.0.1
 - Migrated to Null-safety
 - Supports dargon2 v2.0.1

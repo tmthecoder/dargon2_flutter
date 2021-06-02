@@ -1,6 +1,6 @@
 name: dargon2_flutter
 description: A wrapper over dargon2 for Flutter application compatibility
-version: 2.0.1
+version: 2.1.0
 homepage: https://github.com/tmthecoder/dargon2_flutter
 repository: https://github.com/tmthecoder/dargon2_flutter
 
@@ -11,9 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dargon2_core:
-    git: 'https://github.com/tmthecoder/dargon2_core'
-  ffi: ^1.0.0
+  dargon2_core: ^1.0.0
 
 dev_dependencies:
   flutter_test:

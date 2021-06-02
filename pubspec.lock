@@ -53,11 +53,9 @@ packages:
   dargon2_core:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: f58c651b349c980a2429836e859c1c889d8a32fd
-      url: "https://github.com/tmthecoder/dargon2_core"
-    source: git
+      name: dargon2_core
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "1.0.0"
   fake_async:
     dependency: transitive
@@ -67,7 +65,7 @@ packages:
     source: hosted
     version: "1.2.0"
   ffi:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: ffi
       url: "https://pub.dartlang.org"

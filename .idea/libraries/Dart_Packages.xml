@@ -61,7 +61,7 @@
         <entry key="dargon2_core">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/git/dargon2_core-f58c651b349c980a2429836e859c1c889d8a32fd/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/dargon2_core-1.0.0/lib" />
             </list>
           </value>
         </entry>
@@ -180,7 +180,6 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://$USER_HOME$/.pub-cache/git/dargon2_core-f58c651b349c980a2429836e859c1c889d8a32fd/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/async-2.6.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0/lib" />
@@ -189,6 +188,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/convert-3.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.1+1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/dargon2_core-1.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/ffi-1.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.10/lib" />
