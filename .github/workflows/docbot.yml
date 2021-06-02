@@ -13,7 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: subosito/flutter-action@v1
+    - name: Cache Flutter dependencies
+      uses: actions/cache@v2
+      with:
+        path: /opt/hostedtoolcache/flutter
+        key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
+    - uses: subosito/flutter-action@v1.5.1
       with:
         channel: 'beta' # Currently you have to use beta channel for Flutter web.
     - name: Upgrade flutter
@@ -24,7 +29,6 @@ jobs:
       run: pub global activate dartdoc
     - name: Generate Documentation
       run: |
-        export FLUTTER_ROOT=$FLUTTER_HOME
         dartdoc
     - name: Push Documentation
       run: |
