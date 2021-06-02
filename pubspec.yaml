@@ -1,5 +1,5 @@
 name: dargon2_flutter
-description: A wrapper over dargon2 for Flutter application compatibility
+description: Argon2 Dart bindings for Flutter iOS and Android applications
 version: 2.1.0
 homepage: https://github.com/tmthecoder/dargon2_flutter
 repository: https://github.com/tmthecoder/dargon2_flutter
