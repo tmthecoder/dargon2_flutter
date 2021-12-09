@@ -53,10 +53,17 @@ packages:
   dargon2_core:
     dependency: "direct main"
     description:
-      path: "../dargon2_core"
+      path: "../../dargon2_core"
       relative: true
     source: path
     version: "2.0.0"
+  dargon2_interface:
+    dependency: transitive
+    description:
+      path: "../../dargon2_interface"
+      relative: true
+    source: path
+    version: "1.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -171,5 +178,5 @@ packages:
     source: hosted
     version: "2.1.1"
 sdks:
-  dart: ">=2.14.0 <3.0.0"
+  dart: ">=2.15.0 <3.0.0"
   flutter: ">=2.0.0"

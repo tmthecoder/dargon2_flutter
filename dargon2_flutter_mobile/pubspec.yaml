@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   dargon2_core:
-    path: ../dargon2_core
+    path: ../../dargon2_core
 
 dev_dependencies:
   flutter_test:
@@ -34,6 +34,6 @@ flutter:
         pluginClass: Dargon2FlutterPlugin
       ios:
         pluginClass: Dargon2FlutterPlugin
-      web:
-        pluginClass: Dargon2FlutterPlugin
-        fileName: dargon2_flutter_web.dart
+#      web:
+#        pluginClass: Dargon2FlutterPlugin
+#        fileName: dargon2_flutter_web.dart

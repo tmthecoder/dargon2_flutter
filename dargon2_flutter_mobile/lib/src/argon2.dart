@@ -4,9 +4,7 @@
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import 'package:dargon2_core/dargon2_core.dart';
-import 'loader/dargon2_loader_stub.dart'
-  if (dart.library.io) 'loader/dargon2_loader_native.dart'
-  if (dart.library.js) 'loader/dargon2_loader_web.dart';
+import 'package:dargon2_flutter/src/native/flutter_lib_loader.dart';
 
 /// The globally accessible instance of [DArgon2] with Flutter library loading
-final argon2 = getLibrary();
+final argon2 = DArgon2Native(FlutterLibLoader());
