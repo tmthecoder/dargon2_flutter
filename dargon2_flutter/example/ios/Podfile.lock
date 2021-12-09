@@ -1,0 +1,29 @@
+PODS:
+  - Argon2Swift (1.0.1)
+  - dargon2_flutter (1.2.0):
+    - Argon2Swift
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - dargon2_flutter (from `.symlinks/plugins/dargon2_flutter/ios`)
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - Argon2Swift
+
+EXTERNAL SOURCES:
+  dargon2_flutter:
+    :path: ".symlinks/plugins/dargon2_flutter/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  Argon2Swift: eb9a333b18df90824d5a551575f01edfccdfbb62
+  dargon2_flutter: f5f35f4ce7b7b691315418f1286318f70961e562
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.10.1
