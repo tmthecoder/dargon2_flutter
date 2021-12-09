@@ -4,7 +4,25 @@
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import 'package:dargon2_core/dargon2_core.dart';
-import 'package:dargon2_flutter/src/native/flutter_lib_loader.dart';
+import 'package:dargon2_flutter_platform_interface/dargon2_flutter_platform.dart';
+
+import 'native/flutter_lib_loader.dart';
 
 /// The globally accessible instance of [DArgon2] with Flutter library loading
-final argon2 = DArgon2Native(FlutterLibLoader());
+class DArgon2Mobile extends DArgon2Platform {
+
+  DArgon2 argon2 = DArgon2Native(FlutterLibLoader());
+
+  static void registerWith() {
+    DArgon2Platform.instance = DArgon2Mobile();
+  }
+
+  @override
+  Future<DArgon2Result> hashPasswordBytes(List<int> password, {required Salt salt, int iterations = 32, int memory = 256, int parallelism = 2, int length = 32, Argon2Type type = Argon2Type.i, Argon2Version version = Argon2Version.V13}) =>
+      argon2.hashPasswordBytes(password, salt: salt, iterations: iterations, memory: memory, parallelism: parallelism, length: length, type: type, version: version);
+
+  @override
+  Future<bool> verifyHashBytes(List<int> password, List<int> encodedHash, {Argon2Type type = Argon2Type.i}) =>
+      argon2.verifyHashBytes(password, encodedHash, type: type);
+
+}

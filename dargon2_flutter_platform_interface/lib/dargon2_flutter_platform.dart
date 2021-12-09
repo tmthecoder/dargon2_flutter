@@ -1,10 +1,12 @@
+/// Made by Tejas Mehta
+/// Made on Thursday, December 09, 2021
+/// File Name: dargon2_flutter_platform.dart
+
 import 'package:dargon2_flutter_platform_interface/empty_dargon2_flutter.dart';
 import 'package:dargon2_interface/dargon2_interface.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-/// Made by Tejas Mehta
-/// Made on Thursday, December 09, 2021
-/// File Name: dargon2_flutter_platform.dart
+DArgon2 argon2 = DArgon2Platform.instance;
 
 abstract class DArgon2Platform extends PlatformInterface with DArgon2 {
   static final Object _token = Object();

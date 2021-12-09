@@ -1,4 +1,4 @@
-name: dargon2_flutter
+name: dargon2_flutter_mobile
 description: Argon2 Dart bindings for Flutter iOS, Android, and Web applications
 version: 3.0.0
 homepage: https://github.com/tmthecoder/dargon2_flutter
@@ -11,8 +11,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  plugin_platform_interface: "^2.0.0"
   dargon2_core:
     path: ../../dargon2_core
+  dargon2_flutter_platform_interface:
+    path: ../dargon2_flutter_platform_interface
 
 dev_dependencies:
   flutter_test:

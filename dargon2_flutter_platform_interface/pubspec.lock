@@ -46,7 +46,7 @@ packages:
   dargon2_interface:
     dependency: "direct main"
     description:
-      path: "../dargon2_interface"
+      path: "../../dargon2_interface"
       relative: true
     source: path
     version: "1.0.0"
