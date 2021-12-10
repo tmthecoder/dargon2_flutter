@@ -11,9 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: "^2.0.0"
-  dargon2_core:
-    path: ../../dargon2_core
+  dargon2_core: '^2.0.1'
   dargon2_flutter_platform_interface:
     path: ../dargon2_flutter_platform_interface
 

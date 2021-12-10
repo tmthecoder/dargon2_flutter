@@ -15,8 +15,7 @@ dependencies:
   js: '^0.6.3'
   dargon2_flutter_platform_interface:
     path: ../dargon2_flutter_platform_interface
-  dargon2_interface:
-    path: ../../dargon2_interface
+  dargon2_interface: '^1.0.0'
 
 dev_dependencies:
   flutter_test:
