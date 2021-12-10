@@ -26,5 +26,4 @@ abstract class DArgon2Platform extends PlatformInterface with DArgon2 {
     PlatformInterface.verifyToken(instance, _token);
     _instance = instance;
   }
-
 }

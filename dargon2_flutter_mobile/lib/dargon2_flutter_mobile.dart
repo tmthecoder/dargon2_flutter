@@ -16,7 +16,9 @@
 ///     import 'package:dargon2_flutter/dartgon2_flutter.dart';
 ///
 /// For detailed usage please look at the example
-export 'package:dargon2_flutter_platform_interface/dargon2_flutter_platform.dart' hide DArgon2Platform;
+export 'package:dargon2_flutter_platform_interface/dargon2_flutter_platform.dart'
+    hide DArgon2Platform;
+export 'src/argon2.dart';
 
 /// Export the package's methods as well in order to conveniently access result classes
 /// and other such items, like error codes

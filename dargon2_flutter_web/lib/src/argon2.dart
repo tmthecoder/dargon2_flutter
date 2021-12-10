@@ -3,7 +3,6 @@
 /// File Name: argon2.dart.dart
 /// Package: lib.src
 
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
@@ -15,13 +14,19 @@ import 'package:js/js.dart';
 import 'package:js/js_util.dart';
 
 class Dargon2FlutterWeb extends DArgon2Platform {
-
   static void registerWith(Registrar registrar) {
     DArgon2Platform.instance = Dargon2FlutterWeb();
   }
 
   @override
-  Future<DArgon2Result> hashPasswordBytes(List<int> password, {required Salt salt, int iterations = 32, int memory = 256, int parallelism = 2, int length = 32, Argon2Type type = Argon2Type.i, Argon2Version version = Argon2Version.V13}) async {
+  Future<DArgon2Result> hashPasswordBytes(List<int> password,
+      {required Salt salt,
+      int iterations = 32,
+      int memory = 256,
+      int parallelism = 2,
+      int length = 32,
+      Argon2Type type = Argon2Type.i,
+      Argon2Version version = Argon2Version.V13}) async {
     var params = _HashParams(
         password: Uint8List.fromList(password),
         salt: Uint8List.fromList(salt.bytes),
@@ -29,8 +34,7 @@ class Dargon2FlutterWeb extends DArgon2Platform {
         memorySize: memory,
         parallelism: parallelism,
         hashLength: length,
-        outputType: 'encoded'
-    );
+        outputType: 'encoded');
     var encoded;
     try {
       switch (type) {
@@ -47,19 +51,22 @@ class Dargon2FlutterWeb extends DArgon2Platform {
       var hash = _normalizeB64(encoded.split('\$').last);
       return DArgon2Result(base64Decode(hash), utf8.encode(encoded));
     } catch (e) {
-      throw DArgon2Exception(e.toString(), DArgon2ErrorCode.ARGON2_UNKNOWN_ERROR);
+      throw DArgon2Exception(
+          e.toString(), DArgon2ErrorCode.ARGON2_UNKNOWN_ERROR);
     }
   }
 
   @override
-  Future<bool> verifyHashBytes(List<int> password, List<int> encodedHash, {Argon2Type type = Argon2Type.i}) {
+  Future<bool> verifyHashBytes(List<int> password, List<int> encodedHash,
+      {Argon2Type type = Argon2Type.i}) {
     try {
       return promiseToFuture(_verify(_VerificationParams(
         password: Uint8List.fromList(password),
         hash: utf8.decode(encodedHash),
       )));
     } catch (e) {
-      throw DArgon2Exception(e.toString(), DArgon2ErrorCode.ARGON2_UNKNOWN_ERROR);
+      throw DArgon2Exception(
+          e.toString(), DArgon2ErrorCode.ARGON2_UNKNOWN_ERROR);
     }
   }
 
@@ -71,7 +78,6 @@ class Dargon2FlutterWeb extends DArgon2Platform {
     return current;
   }
 }
-
 
 @JS('hashwasm.argon2i')
 external _Promise<String> _argon2iHash(_HashParams params);
@@ -93,7 +99,6 @@ class _Promise<T> {
 @JS()
 @anonymous
 class _HashParams {
-
   /* From JS:
     password: IDataType; // password (or message) to be hashed
     salt: IDataType; // salt (usually containing random bytes)
@@ -104,14 +109,19 @@ class _HashParams {
     outputType?: 'hex' | 'binary' | 'encoded'; // by default returns hex string
    */
 
-  external factory _HashParams({Uint8List password, Uint8List salt, int iterations,
-    int parallelism, int memorySize, int hashLength, String outputType});
+  external factory _HashParams(
+      {Uint8List password,
+      Uint8List salt,
+      int iterations,
+      int parallelism,
+      int memorySize,
+      int hashLength,
+      String outputType});
 }
 
 @JS()
 @anonymous
 class _VerificationParams {
-
   /* From JS:
     password: IDataType, // password
     hash: string, // encoded hash
