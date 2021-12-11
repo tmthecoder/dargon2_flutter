@@ -27,7 +27,6 @@ Pod::Spec.new do |s|
   s.source_files =
     "Classes/Dargon2FlutterMobilePlugin.h",
     "Classes/Dargon2FlutterMobilePlugin.m"
-#   s.preserve_paths = 'Classes/Argon2/include/'
   s.requires_arc = true
   s.pod_target_xcconfig = {
     'DEFINES_MODULE' => 'YES',

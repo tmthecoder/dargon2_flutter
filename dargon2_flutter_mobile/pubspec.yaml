@@ -35,6 +35,3 @@ flutter:
         dartPluginClass: DArgon2Mobile
       ios:
         dartPluginClass: DArgon2Mobile
-#      web:
-#        pluginClass: Dargon2FlutterPlugin
-#        fileName: dargon2_flutter_web.dart
