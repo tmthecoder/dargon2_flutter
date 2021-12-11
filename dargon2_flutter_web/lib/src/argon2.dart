@@ -16,7 +16,6 @@ import 'package:js/js_util.dart';
 /// The web [PlatformInterface] of [DArgon2]. Loads argon2 through hashwasm's WebAssembly-based
 /// implementation. Binds the dargon2 mappings to the JS ones.
 class DArgon2FlutterWeb extends DArgon2Platform {
-
   /// The static [registerWith] method from flutter_web_plugins that
   /// makes this implementation the instance of [DArgon2Platform] used
   /// in-app
