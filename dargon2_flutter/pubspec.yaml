@@ -1,5 +1,5 @@
 name: dargon2_flutter
-description: dargon2_flutter
+description: A Flutter implementation of dargon2, providing Argon2 Password Hashing functionality for mobile & web apps
 repository: https://github.com/tmthecoder/dargon2_flutter
 homepage: https://github.com/tmthecoder/dargon2_flutter
 version: 3.0.0

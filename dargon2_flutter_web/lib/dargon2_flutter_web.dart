@@ -9,7 +9,7 @@
 ///
 /// This is the web platform implementation of the [dargon2_flutter] plugin
 ///
-/// To use this library in your code, use the federated [dargon2_flutter] plugib:
+/// To use this library in your code, use the federated [dargon2_flutter] plugin:
 ///
 ///     import 'package:dargon2_flutter/dartgon2_flutter.dart';
 ///
