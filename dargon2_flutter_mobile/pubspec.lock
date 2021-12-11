@@ -60,10 +60,10 @@ packages:
   dargon2_flutter_platform_interface:
     dependency: "direct main"
     description:
-      path: "../dargon2_flutter_platform_interface"
-      relative: true
-    source: path
-    version: "1.0.0"
+      name: dargon2_flutter_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
   dargon2_interface:
     dependency: transitive
     description:
