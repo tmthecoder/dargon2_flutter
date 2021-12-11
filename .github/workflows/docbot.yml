@@ -13,9 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Change Directory
-      run: |
-        cd dargon2_flutter/
     - name: Cache Flutter dependencies
       uses: actions/cache@v2
       with:
@@ -28,8 +25,7 @@ jobs:
       run: flutter upgrade
     - name: Install dependencies
       run: |
-        pwd
-        ls
+        cd dargon2_flutter
         flutter packages get
     - name: Activate dartdoc
       run: pub global activate dartdoc
