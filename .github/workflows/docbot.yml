@@ -31,6 +31,7 @@ jobs:
       run: pub global activate dartdoc
     - name: Generate Documentation
       run: |
+        cd dargon2_flutter
         dartdoc
     - name: Push Documentation
       run: |
