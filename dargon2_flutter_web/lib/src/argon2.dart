@@ -1,7 +1,7 @@
-/// Made by Tejas Mehta
-/// Made on Thursday, December 09, 2021
-/// File Name: argon2.dart.dart
-/// Package: lib.src
+// Copyright 2021 Tejas Mehta <tmthecoder@gmail.com>
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import 'dart:async';
 import 'dart:convert';
@@ -13,9 +13,15 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:js/js.dart';
 import 'package:js/js_util.dart';
 
-class Dargon2FlutterWeb extends DArgon2Platform {
+/// The web [PlatformInterface] of [DArgon2]. Loads argon2 through hashwasm's WebAssembly-based
+/// implementation. Binds the dargon2 mappings to the JS ones.
+class DArgon2FlutterWeb extends DArgon2Platform {
+
+  /// The static [registerWith] method from flutter_web_plugins that
+  /// makes this implementation the instance of [DArgon2Platform] used
+  /// in-app
   static void registerWith(Registrar registrar) {
-    DArgon2Platform.instance = Dargon2FlutterWeb();
+    DArgon2Platform.instance = DArgon2FlutterWeb();
   }
 
   @override
@@ -27,6 +33,8 @@ class Dargon2FlutterWeb extends DArgon2Platform {
       int length = 32,
       Argon2Type type = Argon2Type.i,
       Argon2Version version = Argon2Version.V13}) async {
+    // Create a JS-interp set of parameters for hashwasm's implementation with
+    // the given parameters
     var params = _HashParams(
         password: Uint8List.fromList(password),
         salt: Uint8List.fromList(salt.bytes),
@@ -35,8 +43,10 @@ class Dargon2FlutterWeb extends DArgon2Platform {
         parallelism: parallelism,
         hashLength: length,
         outputType: 'encoded');
-    var encoded;
+
+    // Get the encoded hash based on the type above
     try {
+      String encoded;
       switch (type) {
         case Argon2Type.i:
           encoded = await promiseToFuture(_argon2iHash(params));
@@ -48,9 +58,12 @@ class Dargon2FlutterWeb extends DArgon2Platform {
           encoded = await promiseToFuture(_argon2idHash(params));
           break;
       }
+      // Normalize the hash portion of the encoded hash
       var hash = _normalizeB64(encoded.split('\$').last);
+      // Return a DArgon2Result object
       return DArgon2Result(base64Decode(hash), utf8.encode(encoded));
     } catch (e) {
+      // Throw whichever exception ocurred
       throw DArgon2Exception(
           e.toString(), DArgon2ErrorCode.ARGON2_UNKNOWN_ERROR);
     }
@@ -60,6 +73,7 @@ class Dargon2FlutterWeb extends DArgon2Platform {
   Future<bool> verifyHashBytes(List<int> password, List<int> encodedHash,
       {Argon2Type type = Argon2Type.i}) {
     try {
+      // Try to hash verify the given password and hash
       return promiseToFuture(_verify(_VerificationParams(
         password: Uint8List.fromList(password),
         hash: utf8.decode(encodedHash),
@@ -70,6 +84,9 @@ class Dargon2FlutterWeb extends DArgon2Platform {
     }
   }
 
+  /// A method to normalize a base64-encoded string by adding '=' as needed
+  /// Needed as Dart won't successfully decode the string unless it's padded
+  /// correctly.
   String _normalizeB64(String source) {
     var current = source;
     while (current.length % 4 != 0) {
@@ -79,23 +96,31 @@ class Dargon2FlutterWeb extends DArgon2Platform {
   }
 }
 
+/// JS interop binding to call the hashwasm argon2i hash function.
 @JS('hashwasm.argon2i')
 external _Promise<String> _argon2iHash(_HashParams params);
 
+/// JS interop binding to call the hashwasm argon2d hash function.
 @JS('hashwasm.argon2d')
 external _Promise<String> _argon2dHash(_HashParams params);
 
+/// JS interop binding to call the hashwasm argon2id hash function.
 @JS('hashwasm.argon2id')
 external _Promise<String> _argon2idHash(_HashParams params);
 
+/// JS interop binding to call the hashwasm argon2Cerify function.
 @JS('hashwasm.argon2Verify')
 external _Promise<bool> _verify(_VerificationParams params);
 
+/// A generic class to provide JS Promise support.
 @JS('Promise')
 class _Promise<T> {
   external factory _Promise._();
 }
 
+/// A wrapper class to provide the hash parameters from dargon2's mapping
+/// into a JSON-style object with each parameter mapping to the hashwasm
+/// equivalent. Exact JS mapping is below.
 @JS()
 @anonymous
 class _HashParams {
@@ -109,6 +134,7 @@ class _HashParams {
     outputType?: 'hex' | 'binary' | 'encoded'; // by default returns hex string
    */
 
+  /// The factory constructor that takes our typed parameters.
   external factory _HashParams(
       {Uint8List password,
       Uint8List salt,
@@ -119,6 +145,9 @@ class _HashParams {
       String outputType});
 }
 
+/// A wrapper class to provide the verification parameters from dargon2's
+/// mapping into a JSON-style object with each parameter mapping to the
+/// hashwasm equivalent. Exact JS mapping is below.
 @JS()
 @anonymous
 class _VerificationParams {

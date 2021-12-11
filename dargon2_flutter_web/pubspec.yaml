@@ -1,7 +1,8 @@
 name: dargon2_flutter_web
-description: dargon2_flutter web implementation
-version: 0.0.1
-homepage:
+description: The web platform implementation of dargon2_flutter
+version: 3.0.0
+repository: https://github.com/tmthecoder/dargon2_flutter
+homepage: https://github.com/tmthecoder/dargon2_flutter
 
 environment:
   sdk: ">=2.15.0 <3.0.0"
@@ -13,8 +14,7 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   js: '^0.6.3'
-  dargon2_flutter_platform_interface:
-    path: ../dargon2_flutter_platform_interface
+  dargon2_flutter_platform_interface: '^3.0.0'
   dargon2_interface: '^1.0.0'
 
 dev_dependencies:
@@ -35,7 +35,7 @@ flutter:
     implements: dargon2_flutter
     platforms:
       web:
-        pluginClass: Dargon2FlutterWeb
+        pluginClass: DArgon2FlutterWeb
         fileName: dargon2_flutter_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:

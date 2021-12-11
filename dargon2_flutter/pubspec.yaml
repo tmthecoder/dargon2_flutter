@@ -1,6 +1,7 @@
 name: dargon2_flutter
 description: dargon2_flutter
 repository: https://github.com/tmthecoder/dargon2_flutter
+homepage: https://github.com/tmthecoder/dargon2_flutter
 version: 3.0.0
 
 environment:
@@ -25,8 +26,7 @@ dependencies:
     path: ../dargon2_flutter_mobile
   dargon2_flutter_web:
     path: ../dargon2_flutter_web
-  dargon2_flutter_platform_interface:
-    path: ../dargon2_flutter_platform_interface
+  dargon2_flutter_platform_interface: '3.0.0'
 
 
 
