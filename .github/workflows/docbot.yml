@@ -16,8 +16,6 @@ jobs:
     - name: Change Directory
       run: |
         cd dargon2_flutter/
-        pwd
-        ls
     - name: Cache Flutter dependencies
       uses: actions/cache@v2
       with:
@@ -25,11 +23,14 @@ jobs:
         key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
     - uses: subosito/flutter-action@v1.5.1
       with:
-        channel: 'beta' # Currently you have to use beta channel for Flutter web.
+        channel: 'stable' # Currently you have to use beta channel for Flutter web.
     - name: Upgrade flutter
       run: flutter upgrade
     - name: Install dependencies
-      run: flutter packages get
+      run: |
+        pwd
+        ls
+        flutter packages get
     - name: Activate dartdoc
       run: pub global activate dartdoc
     - name: Generate Documentation
