@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 void main() {
   // This line is necessary if you're using a Flutter version under 2.8 or dart version under 2.15
-  DArgon2Flutter.initialize();
+  DArgon2Flutter.init();
   runApp(MyApp());
 }
 

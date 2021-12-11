@@ -11,7 +11,7 @@ Uses the reference C implementation of [Argon2], winner of the [Password Hash Co
 If you're building with a Flutter version under 2.8 (or you get an `UnimplementedError` on use), add this line into your application entrypoint (usually `main()` in `main.dart`):
 ```dart
 void main() {
-  DArgon2Flutter.initialize();
+  DArgon2Flutter.init();
   runApp(MyApp());
 }
 ```

@@ -5,14 +5,14 @@ homepage: https://github.com/tmthecoder/dargon2_flutter
 repository: https://github.com/tmthecoder/dargon2_flutter
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.14.0 <3.0.0"
   flutter: ">=2.5.0"
 
 dependencies:
   flutter:
     sdk: flutter
   dargon2_core: '^2.0.1'
-  dargon2_flutter_platform_interface: '^3.0.0'
+  dargon2_flutter_platform_interface: '^3.0.1'
 
 dev_dependencies:
   flutter_test:

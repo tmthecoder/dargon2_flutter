@@ -22,6 +22,10 @@ abstract class DArgon2Platform extends PlatformInterface with DArgon2 {
   /// The empty constructor that passes on the token to the superclass.
   DArgon2Platform() : super(token: _token);
 
+  /// The initialize method to set the platform interface when [registerWith]
+  /// cannot be used. Must be manually called in main.
+  void initialize();
+
   /// The platform-specific instance of [DArgon2Platform]. Initially set to
   /// [EmptyDArgon2Flutter], and changed once a platform's bindings are loaded.
   static DArgon2Platform _instance = EmptyDArgon2Flutter();

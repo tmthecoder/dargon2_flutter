@@ -1,3 +1,6 @@
+## 3.0.1
+- Added initialize method (needed in mobile when Flutter version is under 2.8)
+
 ## 3.0.0
 - Initial Version
 - Interface for all dargon2_flutter platform implementations to follow

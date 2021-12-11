@@ -93,6 +93,9 @@ class DArgon2FlutterWeb extends DArgon2Platform {
     }
     return current;
   }
+
+  @override
+  void initialize() {}
 }
 
 /// JS interop binding to call the hashwasm argon2i hash function.

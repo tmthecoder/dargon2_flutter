@@ -1,11 +1,11 @@
 name: dargon2_flutter_web
 description: The web (JS & WASM) platform implementation of dargon2_flutter
-version: 3.0.0
+version: 3.0.1
 repository: https://github.com/tmthecoder/dargon2_flutter
 homepage: https://github.com/tmthecoder/dargon2_flutter
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.14.0 <3.0.0"
   flutter: ">=2.5.0"
 
 dependencies:
@@ -14,7 +14,7 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   js: '^0.6.3'
-  dargon2_flutter_platform_interface: '^3.0.0'
+  dargon2_flutter_platform_interface: '^3.0.1'
   dargon2_interface: '^1.0.0'
 
 dev_dependencies:

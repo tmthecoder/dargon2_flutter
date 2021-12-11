@@ -3,30 +3,4 @@
 // The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import 'package:dargon2_flutter_platform_interface/dargon2_flutter_platform.dart';
-import 'package:dargon2_interface/dargon2_interface.dart';
-
-/// The empty [DArgon2Platform] implementation to default to when no platform
-/// provides bindings to set to.
-class EmptyDArgon2Flutter extends DArgon2Platform {
-  @override
-  Future<DArgon2Result> hashPasswordBytes(List<int> password,
-      {required Salt salt,
-      int iterations = 32,
-      int memory = 256,
-      int parallelism = 2,
-      int length = 32,
-      Argon2Type type = Argon2Type.i,
-      Argon2Version version = Argon2Version.V13}) {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<bool> verifyHashBytes(List<int> password, List<int> encodedHash,
-      {Argon2Type type = Argon2Type.i}) {
-    throw UnimplementedError();
-  }
-
-  @override
-  void initialize() {}
-}
+void initialize() {}

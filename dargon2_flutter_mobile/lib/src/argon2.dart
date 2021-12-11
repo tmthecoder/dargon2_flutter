@@ -45,4 +45,7 @@ class DArgon2Mobile extends DArgon2Platform {
   Future<bool> verifyHashBytes(List<int> password, List<int> encodedHash,
           {Argon2Type type = Argon2Type.i}) =>
       argon2.verifyHashBytes(password, encodedHash, type: type);
+
+  @override
+  void initialize() => registerWith();
 }
