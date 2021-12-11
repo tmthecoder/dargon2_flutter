@@ -2,10 +2,27 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A plugin to handle dart:ffi integrations for iOS and Android for argon2 password hashing in Flutter Applications.
-Uses the reference C implementation of [Argon2], winner of the [Password Hash Competition]
+Uses the reference C implementation of [Argon2], winner of the [Password Hash Competition] in mobile implementations while using [hash-wasm]'s WebAssembly argon2 implementation on web.
 
 [Password Hash Competition]: https://password-hashing.net
 [dargon2]: https://github.com/tmthecoder/dargon2
+
+## Flutter version under 2.8
+If you're building with a Flutter version under 2.8 (or you get an `UnimplementedError` on use), add this line into your application entrypoint (usually `main()` in `main.dart`):
+```dart
+void main() {
+  DArgon2Flutter.initialize();
+  runApp(MyApp());
+}
+```
+
+## Web Only
+If you plan to use this plugin in a web context, you must add the hash-wasm Argon2 JavaScript library to your program.
+
+Insert the following line into your index.html:
+```html
+<script src="https://cdn.jsdelivr.net/npm/hash-wasm@4.8.0/dist/argon2.umd.min.js"></script>
+```
 
 ## Pure Objective-C iOS
 If you're using Objective-C for the iOS portion of your application (created with Objective-C and no Swift code), there's a few extra steps:
@@ -51,12 +68,15 @@ Please file feature requests and bugs at the [issue tracker].
 
 ## Licensing
 
-- dargon2_flutter is Licensed under the [MIT License]
+- dargon2_flutter and all platform implementations are Licensed under the [MIT License]
 - dargon2_core is Licensed under the [MIT License](https://github.com/tmthecoder/dargon2_core/blob/main/LICENSE)
 - The C implementation of [Argon2] is licensed under a dual [Apache and CC0 License]
+- [hash-wasm] is licensed under the [MIT License](https://github.com/Daninet/hash-wasm/blob/master/LICENSE)
 
 [MIT License]: https://github.com/tmthecoder/dargon2_flutter/blob/main/LICENSE
 
 [Argon2]: https://github.com/P-H-C/phc-winner-argon2
+
+[hash-wasm]: https://github.com/Daninet/hash-wasm
 
 [Apache and CC0 License]: https://github.com/P-H-C/phc-winner-argon2/blob/master/LICENSE
