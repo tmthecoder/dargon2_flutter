@@ -13,6 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Change Directory
+      run: |
+        cd dargon2_flutter/
+        pwd
+        ls
     - name: Cache Flutter dependencies
       uses: actions/cache@v2
       with:
@@ -23,8 +28,6 @@ jobs:
         channel: 'beta' # Currently you have to use beta channel for Flutter web.
     - name: Upgrade flutter
       run: flutter upgrade
-    - name: Change Directory
-      run: cd dargon2_flutter/
     - name: Install dependencies
       run: flutter packages get
     - name: Activate dartdoc
