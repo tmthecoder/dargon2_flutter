@@ -1,16 +1,16 @@
 name: dargon2_flutter_platform_interface
-description: A common platform interface for the dargon2_flutter plugin.
+description: The common platform interface for the dargon2_flutter plugin.
 repository: https://github.com/tmthecoder/dargon2_flutter
-version: 1.0.0
+version: 3.0.0
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=2.0.0"
+  sdk: ">=2.15.0 <3.0.0"
+  flutter: ">=2.5.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.0.0
+  plugin_platform_interface: '^2.0.0'
   dargon2_interface: '^1.0.0'
 
 dev_dependencies:

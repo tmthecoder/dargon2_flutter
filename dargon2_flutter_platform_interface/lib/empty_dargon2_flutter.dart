@@ -1,11 +1,9 @@
 import 'package:dargon2_flutter_platform_interface/dargon2_flutter_platform.dart';
 import 'package:dargon2_interface/dargon2_interface.dart';
 
-/// Made by Tejas Mehta
-/// Made on Thursday, December 09, 2021
-/// File Name: empty_dargon2_flutter.dart
-
-class EmptyDargon2Flutter extends DArgon2Platform {
+/// The empty [DArgon2Platform] implementation to default to when no platform
+/// provides bindings to set to.
+class EmptyDArgon2Flutter extends DArgon2Platform {
   @override
   Future<DArgon2Result> hashPasswordBytes(List<int> password,
       {required Salt salt,
