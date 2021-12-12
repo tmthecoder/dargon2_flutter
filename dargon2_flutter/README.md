@@ -66,7 +66,7 @@ When using dargon2_flutter within Dart Isolates, an additional step must be take
 
 The method that will be called in the Isolate must call `DArgon2Flutter.init()`
 
-It should follow this example:
+It should follow this example (with the full program in the example folder):
 
 ```dart
 Future<void> hashWithArgon2Isolate(Map map) async {

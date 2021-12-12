@@ -60,6 +60,25 @@ void _hash() async {
 }
 ```
 
+## Special Usage - Isolates/Compute
+
+When using dargon2_flutter within Dart Isolates, an additional step must be taken or an `UnimplementedError` will be thrown.
+
+The method that will be called in the Isolate must call `DArgon2Flutter.init()`
+
+It should follow this example (with the full program in the example folder):
+
+```dart
+Future<void> hashWithArgon2Isolate(Map map) async {
+  DArgon2Flutter.init();
+  DArgon2Result result =
+      await argon2.hashPasswordString(map["hashString"]!, salt: Salt.newSalt());
+  print("Hex String: ${result.hexString}");
+  print("Base64 String: ${result.base64String}");
+  print("Encoded String: ${result.encodedString}");
+}
+```
+
 ## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker].
