@@ -11,14 +11,14 @@ project(argon2-arm C CXX)
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Os")
 
 file(GLOB argon2-arm_SOURCES
-        ../ios/Classes/Argon2/src/blake2/blake2b.c
-        ../ios/Classes/Argon2/src/argon2.c
-        ../ios/Classes/Argon2/src/core.c
-        ../ios/Classes/Argon2/src/encoding.c
-        ../ios/Classes/Argon2/src/ref.c
-        ../ios/Classes/Argon2/src/thread.c
+       ./Argon2/src/blake2/blake2b.c
+       ./Argon2/src/argon2.c
+        ./Argon2/src/core.c
+        ./Argon2/src/encoding.c
+        ./Argon2/src/ref.c
+        ./Argon2/src/thread.c
 )
 
 add_library(argon2-arm SHARED ${argon2-arm_SOURCES})
 target_compile_options(argon2-arm PRIVATE)
-target_include_directories(argon2-arm PUBLIC ../ios/Classes/Argon2/include/)
+target_include_directories(argon2-arm PUBLIC ./Argon2/include/)
