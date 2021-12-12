@@ -4,6 +4,7 @@
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import 'package:dargon2_flutter/dargon2_flutter.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 void main() {
   // This line is necessary if you're using a Flutter version under 2.8 or dart version under 2.15
@@ -96,5 +97,19 @@ class _MyAppState extends State<MyApp> {
     _hexHash = result.hexString;
     _encodedString = result.encodedString;
     setState(() {});
+
+    // Call the compute hash
+    compute(hashWithArgon2Isolate, {
+      "hashString": "Test hash string"
+    });
   }
+}
+
+Future<void> hashWithArgon2Isolate(Map<String, String> map) async {
+  DArgon2Flutter.init();
+  DArgon2Result result =
+      await argon2.hashPasswordString(map["hashString"]!, salt: Salt.newSalt());
+  print("Hex String: ${result.hexString}");
+  print("Base64 String: ${result.base64String}");
+  print("Encoded String: ${result.encodedString}");
 }

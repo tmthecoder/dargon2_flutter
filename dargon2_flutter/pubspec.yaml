@@ -2,7 +2,7 @@ name: dargon2_flutter
 description: A Flutter implementation of dargon2, providing Argon2 Password Hashing functionality for mobile & web apps
 repository: https://github.com/tmthecoder/dargon2_flutter
 homepage: https://github.com/tmthecoder/dargon2_flutter
-version: 3.0.0
+version: 3.0.3
 
 environment:
   sdk: ">=2.14.0 <3.0.0"
@@ -26,7 +26,7 @@ dependencies:
     path: ../dargon2_flutter_mobile
   dargon2_flutter_web:
     path: ../dargon2_flutter_web
-  dargon2_flutter_platform_interface: '^3.0.2'
+  dargon2_flutter_platform_interface: '^3.0.3'
 
 
 

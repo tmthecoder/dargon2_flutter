@@ -1,3 +1,13 @@
+## 3.0.3
+- Updated to align with platform interface and implementations
+- Versioning mismatch changes
+
+## 3.0.0
+- **BREAKING** Library no longer supports `sync` methods
+- **Potentially Breaking** When using dargon2_flutter in isolates, `DArgon2Flutter.init()` must be called before in EACH isolate before the hash/verify call
+- Web Support! Instructions on setup are in the README
+- Migrated to a federated plugin structure
+
 ## 2.1.0
 - Migrated to use a shared dargon2_core plugin
 - More modular and allows for custom Library Loader definitions
