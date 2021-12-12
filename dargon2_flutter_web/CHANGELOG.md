@@ -1,3 +1,6 @@
+## 3.0.3
+- Add in hashwasm dynamically
+
 ## 3.0.2
 - Fix the dependency resolve
 - Remove the initialize method
