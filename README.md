@@ -16,14 +16,6 @@ void main() {
 }
 ```
 
-## Web Only
-If you plan to use this plugin in a web context, you must add the hash-wasm Argon2 JavaScript library to your program.
-
-Insert the following line into your index.html:
-```html
-<script src="https://cdn.jsdelivr.net/npm/hash-wasm@4.8.0/dist/argon2.umd.min.js"></script>
-```
-
 ## Pure Objective-C iOS
 If you're using Objective-C for the iOS portion of your application (created with Objective-C and no Swift code), there's a few extra steps:
 - Open the Xcode workspace (type in `open iOS/Runner.xcworkspace` in the terminal in the project's root directory)
