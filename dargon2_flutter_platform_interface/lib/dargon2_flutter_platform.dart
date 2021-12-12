@@ -9,7 +9,7 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 /// The globally accessible instance of [DArgon2]. It provides all hashing and
 /// verification functionality.
-DArgon2 argon2 = DArgon2Platform.instance;
+DArgon2 get argon2 => DArgon2Platform.instance;
 
 /// The base [PlatformInterface] for all [dargon2_flutter] platform-specific
 /// implementations to follow. Provides the hashing functionality through the

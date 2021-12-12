@@ -1,3 +1,7 @@
+## 3.0.2
+- Fix the dependency resolve
+- Remove the initialize method
+
 ## 3.0.1
 - Add `initialize` method
 

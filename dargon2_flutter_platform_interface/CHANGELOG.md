@@ -1,3 +1,6 @@
+## 3.0.3
+- Make `argon2` a getter instead of a variable
+
 ## 3.0.2
 - Fixed the dependency version issue
 - Removed the initialize method (wasn't actually needed)
