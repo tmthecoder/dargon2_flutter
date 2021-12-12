@@ -26,7 +26,4 @@ class EmptyDArgon2Flutter extends DArgon2Platform {
       {Argon2Type type = Argon2Type.i}) {
     throw UnimplementedError();
   }
-
-  @override
-  void initialize() {}
 }

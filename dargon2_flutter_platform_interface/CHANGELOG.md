@@ -1,3 +1,7 @@
+## 3.0.2
+- Fixed the dependency version issue
+- Removed the initialize method (wasn't actually needed)
+
 ## 3.0.1
 - Added initialize method (needed in mobile when Flutter version is under 2.8)
 

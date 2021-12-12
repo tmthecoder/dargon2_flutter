@@ -15,16 +15,11 @@ DArgon2 argon2 = DArgon2Platform.instance;
 /// implementations to follow. Provides the hashing functionality through the
 /// [DArgon2] mixin and federated functionality from [PlatformInterface].
 abstract class DArgon2Platform extends PlatformInterface with DArgon2 {
-
   /// The token [Object] to pass to the [PlatformInterface.verifyToken] method.
   static final Object _token = Object();
 
   /// The empty constructor that passes on the token to the superclass.
   DArgon2Platform() : super(token: _token);
-
-  /// The initialize method to set the platform interface when [registerWith]
-  /// cannot be used. Must be manually called in main.
-  void initialize();
 
   /// The platform-specific instance of [DArgon2Platform]. Initially set to
   /// [EmptyDArgon2Flutter], and changed once a platform's bindings are loaded.
