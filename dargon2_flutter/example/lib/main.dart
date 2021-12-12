@@ -7,7 +7,7 @@ import 'package:dargon2_flutter/dargon2_flutter.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 void main() {
-  // This line is necessary if you're using a Flutter version under 2.8 or dart version under 2.15
+  // This line is necessary if you're using a Flutter version under 2.8
   DArgon2Flutter.init();
   runApp(MyApp());
 }
@@ -48,10 +48,9 @@ class _MyAppState extends State<MyApp> {
               Padding(
                 padding: const EdgeInsets.all(10),
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Hash With Argon2"),
                 onPressed: _hash,
-                color: Colors.blue,
               ),
               Padding(
                 padding: const EdgeInsets.all(10),

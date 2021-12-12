@@ -5,6 +5,8 @@
 
 import 'dart:async';
 import 'dart:convert';
+import 'dart:html';
+import 'dart:js';
 import 'dart:typed_data';
 
 import 'package:dargon2_flutter_platform_interface/dargon2_flutter_platform.dart';
@@ -19,8 +21,21 @@ class DArgon2FlutterWeb extends DArgon2Platform {
   /// The static [registerWith] method from flutter_web_plugins that
   /// makes this implementation the instance of [DArgon2Platform] used
   /// in-app
-  static void registerWith(Registrar registrar) {
+  static void registerWith(Registrar registrar) async {
     DArgon2Platform.instance = DArgon2FlutterWeb();
+  }
+
+  /// The static hashwasm URL to use when getting the script.
+  static const hashwasm = "https://cdn.jsdelivr.net/npm/hash-wasm@4.8.0/dist/argon2.umd.min";
+
+  /// The [DArgon2FlutterWeb] constructor. Needed to set the global hashwasm
+  /// variable to the right script.
+  DArgon2FlutterWeb() {
+    if (context['require'] != null) {
+      _registerRequire();
+    } else {
+      _registerNormal();
+    }
   }
 
   @override
@@ -85,13 +100,62 @@ class DArgon2FlutterWeb extends DArgon2Platform {
 
   /// A method to normalize a base64-encoded string by adding '=' as needed
   /// Needed as Dart won't successfully decode the string unless it's padded
-  /// correctly.
+  /// correctly. Returns a [String] with correctly-padded base64
   String _normalizeB64(String source) {
     var current = source;
     while (current.length % 4 != 0) {
       current += '=';
     }
     return current;
+  }
+
+  /// Registers the hashwasm argon2 implementation in release or script-loaded
+  /// environments by adding a script tag with the dependency.
+  void _registerNormal() async {
+    print("NORMAL");
+    // Create the script element
+    ScriptElement script = ScriptElement();
+    script.type = "text/javascript";
+    script.charset = "utf-8";
+    script.async = true;
+    script.src = "$hashwasm.js";
+    // Add it to the document head
+    assert(document.head != null);
+    document.head!.append(script);
+    // await its load
+    await script.onLoad.first;
+  }
+
+  /// Registers the hashwasm argon2 implementation in debug or requirejs loaded
+  /// environments as adding the script tag would not suffice then.
+  ///
+  /// Adds it as a require.js dependency and sets the global hashwasm variable
+  /// to the require app.
+  void _registerRequire() async {
+    // Make sure it's not already there
+    if (context['hashwasm'] != null) return;
+    // Get the require object
+    JsObject require = JsObject.fromBrowserObject(context['require']);
+    // Add the script to the config
+    require.callMethod('config', [
+      JsObject.jsify({
+        'paths' : {
+          "hashwasm": hashwasm
+        }
+      })
+    ]);
+    Completer completer = Completer();
+    List<String> services = ['hashwasm'];
+    // Load the script
+    context.callMethod('require', [
+      JsObject.jsify(services),
+          (app) {
+        // Set it to the global variable
+        context['hashwasm'] = app;
+        completer.complete();
+      }
+    ]);
+    await completer.future;
   }
 }
 
