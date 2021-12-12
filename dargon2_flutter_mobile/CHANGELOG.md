@@ -1,6 +1,3 @@
-## 3.0.4
-- Update the LICENSE file to remove the line breaks
-
 ## 3.0.3
 - Match the interface version
 
