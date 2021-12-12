@@ -1,3 +1,6 @@
+## 3.0.3
+- Match the interface version
+
 ## 3.0.2
 - Add the dependency resolve fixes
 - Remove initialize method
