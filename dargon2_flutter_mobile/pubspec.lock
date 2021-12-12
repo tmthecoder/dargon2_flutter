@@ -65,7 +65,7 @@ packages:
     source: hosted
     version: "3.0.3"
   dargon2_interface:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: dargon2_interface
       url: "https://pub.dartlang.org"
