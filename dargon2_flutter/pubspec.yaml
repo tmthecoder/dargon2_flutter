@@ -22,8 +22,7 @@ dependencies:
   flutter:
     sdk: flutter
   meta: ^1.3.0
-  dargon2_flutter_mobile:
-    path: ../dargon2_flutter_mobile
+  dargon2_flutter_mobile: '^3.0.3'
   dargon2_flutter_web:
     path: ../dargon2_flutter_web
   dargon2_flutter_platform_interface: '^3.0.3'
