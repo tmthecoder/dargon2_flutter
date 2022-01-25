@@ -1,6 +1,12 @@
 # dargon2_flutter
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+# NOTE: Archive
+
+This repository has been archived. Don't worry, `dargon2_flutter` is still in development with full support! I've just moved this repository and all dargon2 components into a single `dargon2` repository: https://github.com/tmthecoder/dargon2
+
+---
+
 A plugin to handle dart:ffi integrations for iOS and Android for argon2 password hashing in Flutter Applications.
 Uses the reference C implementation of [Argon2], winner of the [Password Hash Competition] in mobile implementations while using [hash-wasm]'s WebAssembly argon2 implementation on web.
 
